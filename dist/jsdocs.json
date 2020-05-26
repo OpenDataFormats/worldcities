@@ -1,0 +1,34 @@
+{
+  "tags": {
+    "allowUnknownTags": true,
+    "dictionaries": ["jsdoc"]
+  },
+  "recurseDepth": 10,
+  "source": {
+    "include": ["."],
+    "includePattern": ".+\\.js(doc|x)?$",
+    "exclude": [
+      ".git",
+      "node_modules"
+    ],
+    "excludePattern": "(node_modules|\\.test\\.js|\\.mock\\.js)"
+  },
+  "sourceType": "module",
+  "plugins": [],
+  "opts": {
+    "recurse": true,
+    "verbose": false
+  },
+  "markdown": {
+    "parser": "gfm",
+    "hardwrap": true
+  },
+  "templates": {
+    "cleverLinks": false,
+    "monospaceLinks": false,
+    "default": {
+      "outputSourceFiles": true,
+      "includeDate": true
+    }
+  }
+}

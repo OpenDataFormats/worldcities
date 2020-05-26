@@ -1,0 +1,273 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema",
+  "$id": "http://example.com/example.json",
+  "type": "object",
+  "title": "World City Schema",
+  "description": "Normalized representation of city data.",
+  "default": {},
+  "additionalProperties": true,
+  "required": [
+    "name",
+    "latitude",
+    "longitude",
+    "population",
+    "timezone",
+    "country"
+  ],
+  "properties": {
+    "name": {
+      "type": "string",
+      "title": "Name of the city",
+      "description": "The name of the city in ASCII.",
+      "default": "",
+      "examples": [
+        "Oxford"
+      ]
+    },
+    "latitude": {
+      "type": "number",
+      "title": "Latitude in decimal",
+      "description": "The decimal value of the latitude of the city.",
+      "minimum": -90,
+      "maximum": 90,
+      "examples": [
+        51.75222
+      ]
+    },
+    "longitude": {
+      "type": "number",
+      "title": "Longitude in decimal",
+      "description": "The decimal value of the longitude of the city.",
+      "minimum": -180,
+      "maximum": 180,
+      "examples": [
+        -1.25596
+      ]
+    },
+    "population": {
+      "type": "integer",
+      "title": "Population of the city",
+      "description": "Estimate of the population of the city.",
+      "default": 0,
+      "minimum": 0,
+      "examples": [
+        171380
+      ]
+    },
+    "timezone": {
+      "type": "string",
+      "title": "Timezone of the city",
+      "description": "The `tz database` unique string identifier for which the city is in.",
+      "default": "",
+      "examples": [
+        "Europe/London"
+      ]
+    },
+    "country": {
+      "$ref": "#/definitions/country"
+    }
+  },
+  "definitions": {
+    "country": {
+      "type": "object",
+      "title": "Country",
+      "description": "Political state, nation, or territory.",
+      "examples": [
+        {
+          "languages": [
+            "bs",
+            "hr-BA",
+            "sr-BA"
+          ],
+          "capital": "Sarajevo",
+          "currencyName": "Marka",
+          "callingCode": "387",
+          "areaSquareMeters": 51129.0,
+          "countryCode3": "BIH",
+          "continent": "EU",
+          "tld": ".ba",
+          "name": "Bosnia and Herzegovina",
+          "population": 3323929,
+          "neighbors": [
+            "HR",
+            "ME",
+            "RS"
+          ],
+          "currencyCode": "BAM",
+          "countryCode": "BA",
+          "wikipedia": "Bosnia_and_Herzegovina",
+          "postalCodeRegExp": "^(\\d{5})$"
+        }
+      ],
+      "required": [
+          "name",
+          "countryCode",
+          "countryCode3",
+          "capital",
+          "areaSquareMeters",
+          "population",
+          "continent",
+          "tld",
+          "currencyCode",
+          "currencyName",
+          "callingCode",
+          "postalCodeRegExp",
+          "languages",
+          "neighbors",
+          "wikipedia"
+      ],
+      "properties": {
+        "name": {
+          "type": "string",
+          "title": "The name of the country",
+          "default": "",
+          "examples": [
+            "United Kingdom"
+          ]
+        },
+        "countryCode": {
+          "type": "string",
+          "title": "ISO 3166-1 alpha-2 two-letter alpha code",
+          "description": "Most widely used unique 2 letter country identifier.",
+          "default": "",
+          "examples": [
+            "GB"
+          ]
+        },
+        "countryCode3": {
+          "type": "string",
+          "title": "ISO 3166-1 alpha-3 three-letter alpha code",
+          "description": "Unique 3 letter country identifier.",
+          "default": "",
+          "examples": [
+            "GBR"
+          ]
+        },
+        "capital": {
+          "type": "string",
+          "title": "The capital city of the country",
+          "description": "Administrative center of government.",
+          "default": "",
+          "examples": [
+            "London"
+          ]
+        },
+        "areaSquareMeters": {
+          "type": "integer",
+          "title": "Area in square meters",
+          "description": "The area in square meters of the country.",
+          "default": 0,
+          "examples": [
+            244820
+          ]
+        },
+        "population": {
+          "type": "integer",
+          "title": "Population of the country",
+          "description": "Estimate of the population of the country.",
+          "default": 0,
+          "minimum": 0,
+          "examples": [
+            66488991
+          ]
+        },
+        "continent": {
+          "type": "string",
+          "title": "Continent two-letter code",
+          "description": "Short 2 letter code for the continent the country is on.",
+          "enum": [
+            "AF",
+            "AN",
+            "AS",
+            "EU",
+            "NA",
+            "OC",
+            "SA"
+          ]
+        },
+        "tld": {
+          "type": "string",
+          "title": "Top level domain (TLD)",
+          "description": "The top level domain name used in country specific URLs.",
+          "examples": [
+              ".uk"
+          ]
+        },
+        "currencyCode": {
+          "type": "string",
+          "title": "Short currency code",
+          "description": "Short code identifying the primary currency used in the country.",
+          "examples": [
+            "GBP"
+          ]
+        },
+        "currencyName": {
+          "type": "string",
+          "title": "Currency name",
+          "description": "The full name of the currency used in the country.",
+          "examples": [
+            "Pound"
+          ]
+        },
+        "callingCode": {
+          "type": "string",
+          "title": "Calling code prefix",
+          "description": "The prefix numbers used when calling a phone in the country.",
+          "examples": [
+            "44"
+          ]
+        },
+        "postalCodeRegExp": {
+          "type": "string",
+          "title": "Postal code regular expression",
+          "description": "A regular expression defining the country's postal codes. Can be used to test the validity as well.",
+          "default": "",
+          "examples": [
+            "^(\\d{5})$"
+          ]
+        },
+        "languages": {
+          "type": "array",
+          "title": "Languages commonly used",
+          "description": "List of ISO code for most commonly used languages. Can also include the specific dialect.",
+          "default": [],
+          "examples": [
+            [
+              "en-GB",
+              "cy-GB"
+            ]
+          ],
+          "items": {
+            "type": "string",
+            "pattern": "^\\w{2,3}(-\\D{2})?$"
+          }
+        },
+        "neighbors": {
+          "type": "array",
+          "title": "Country code of neighbors",
+          "description": "List of the two-letter country codes for neighboring countries.",
+          "default": [],
+          "examples": [
+            [
+              "IE"
+            ]
+          ],
+          "items": {
+            "type": "string",
+            "pattern": "^\\w{2}$"
+          }
+        },
+        "wikipedia": {
+          "type": "string",
+          "title": "Wikipedia URL",
+          "description": "The component of the URL to the Wikipedia entry for the country. This can be appended to a URL prefix, such as `https://en.wikipedia.org/wiki/`.",
+          "default": "",
+          "examples": [
+              "United_Kingdom"
+          ]
+        }
+      },
+      "additionalProperties": true
+    }
+  }
+}
