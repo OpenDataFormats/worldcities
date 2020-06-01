@@ -3,10 +3,7 @@ source $(dirname ${0})/base.sh
 
 info "Running the TSV to JSON converters on all datasets"
 
-info "Converting country data"
-node ${CONVERTERS_DIR}/countries.js
-
-info "Converting city data"
+info "Converting city and country data"
 node ${CONVERTERS_DIR}/cities.js
 
 info "Converting GeoJSON data"

@@ -19,12 +19,7 @@
   ],
   "main": "dist/index.js",
   "scripts": {
-    "docs": "jsdoc --configure jsdocs.json --destination ../../../docs/jsdocs",
-    "lint": "eslint .",
-    "lint:fix": "eslint . --fix",
-    "start": "node dist/index.js",
-    "test": "jest && coveralls < ../docs/coverage/lcov.info",
-    "test:watch": "jest --watchAll"
+    "start": "node dist/index.js"
   },
   "repository": {
     "type": "git",
@@ -40,18 +35,5 @@
   },
   "homepage": "https://github.com/OpenDataFormats/worldcities",
   "dependencies": {},
-  "devDependencies": {
-    "coveralls": "^3.0.11",
-    "eslint": "^5.6.0",
-    "jest": "^25.1.0",
-    "jsdoc": "^3.6.3"
-  },
-  "jest": {
-    "verbose": true,
-    "collectCoverage": true,
-    "coverageDirectory": "../docs/coverage",
-    "coveragePathIgnorePatterns": [
-      "/node_modules/"
-    ]
-  }
+  "devDependencies": {}
 }

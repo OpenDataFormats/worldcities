@@ -141,7 +141,9 @@ const readJson = (filepath) => {
 
 
 /**
- * Write the contents of an array of parsed objects to a compact JSON file.
+ * Write the contents of an array of parsed objects to a compact text file.
+ * Can be JSON, CSV, etc, determined by the filename extension, the wrapper,
+ * and the joiner.
  *
  * @param {Array.<object>} entities The parsed objects to write.
  * @param {Function.<object>} serializer A function to convert each object to its serialized JSON.
@@ -149,7 +151,7 @@ const readJson = (filepath) => {
  * @param {string} joiner A string to use in joining each line to be written.
  * @param {string} filepath Relative file path to write the resulting JSON output.
  */
-const serializeToJsonFile = (entities, serializer, wrapper, joiner, filepath) => {
+const serializeToFile = (entities, serializer, wrapper, joiner, filepath) => {
   const txt = entities.map(serializer).join(joiner);
   const output = util.format(wrapper, txt);
   fs.writeFileSync(path.join(__dirname, filepath), output);
@@ -165,7 +167,6 @@ const serializeToJsonFile = (entities, serializer, wrapper, joiner, filepath) =>
 const writeJsonToFiles = (entities, pathprefix) => {
   Object.entries(entities).forEach(([key, value]) => {
     const filepath = path.join(__dirname, pathprefix, `${key.toLowerCase()}.json`);
-    // console.log('About to write', filepath);
     fs.writeFileSync(filepath, value);
   });
 };
@@ -174,9 +175,8 @@ const writeJsonToFiles = (entities, pathprefix) => {
 module.exports = {
   city,
   country,
-  isParsable,
   readFileLines,
   readJson,
-  serializeToJsonFile,
+  serializeToFile,
   writeJsonToFiles,
 };
