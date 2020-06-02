@@ -5,6 +5,3 @@ info "Running the TSV to JSON converters on all datasets"
 
 info "Converting city and country data"
 node ${CONVERTERS_DIR}/cities.js
-
-info "Converting GeoJSON data"
-node ${CONVERTERS_DIR}/shapes.js

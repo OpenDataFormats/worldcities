@@ -7,6 +7,9 @@ const fs = require('fs');
 const path = require('path');
 const util = require('util');
 
+const EMPTY_SPACE = new RegExp(`
+(  )*`, 'g');
+
 
  /**
   * Extract the data for a city.
@@ -141,6 +144,17 @@ const readJson = (filepath) => {
 
 
 /**
+ * Read an SVG file and strip out newlines and indentation.
+ *
+ * @param {*} filepath
+ */
+const readSvgFile = (filepath) => {
+  const svg = fs.readFileSync(path.join(__dirname, filepath), 'utf8');
+  return svg.replace(EMPTY_SPACE, '');
+};
+
+
+ /**
  * Write the contents of an array of parsed objects to a compact text file.
  * Can be JSON, CSV, etc, determined by the filename extension, the wrapper,
  * and the joiner.
@@ -177,6 +191,7 @@ module.exports = {
   country,
   readFileLines,
   readJson,
+  readSvgFile,
   serializeToFile,
   writeJsonToFiles,
 };
