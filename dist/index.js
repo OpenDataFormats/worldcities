@@ -14,7 +14,7 @@ const country_1 = require("./lib/country");
 const getSqliteFile = () => {
     return path_1.default.join(__dirname, './database/worldcities.sqlite');
 };
-module.exports = {
+exports.default = {
     getNearestCity: city_1.City.getNearest,
     getSqliteFile,
     City: city_1.City,
