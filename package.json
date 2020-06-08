@@ -3,7 +3,8 @@
   "version": "0.1.0",
   "description": "Root repository for worldcities, for pulling source data, parsing, and preparing the npm package.",
   "scripts": {
-    "build": "./node_modules/.bin/tsc",
+    "build": "npm run copy:assets && ./node_modules/.bin/tsc",
+    "copy:assets": "cpx 'src/data/**' 'dist/data'",
     "docs": "jsdoc --configure jsdocs.json --destination ./docs/jsdocs",
     "lint": "eslint ./src/",
     "lint:fix": "eslint ./src/ --fix",
@@ -28,6 +29,7 @@
   "devDependencies": {
     "@types/jest": "^25.2.3",
     "coveralls": "^3.0.11",
+    "cpx": "^1.5.0",
     "eslint": "^7.2.0",
     "jest": "^26.0.1",
     "jsdoc": "^3.6.3",

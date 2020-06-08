@@ -44,3 +44,8 @@ jspm_packages/
 # dotenv environment variables file
 .env
 .env.test
+
+# The build output folder, which is packaged for npm
+dist/
+!dist/package.json
+!dist/README.md
