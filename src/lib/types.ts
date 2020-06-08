@@ -28,6 +28,8 @@ export interface ICountry {
   countryCode3: string;
   currencyCode: string;
   currencyName: string;
+  flagSVG?: string;
+  geoJSON?: IOpenObject;
   languages: string[];
   name: string;
   neighbors: string[];

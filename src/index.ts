@@ -14,7 +14,7 @@ const getSqliteFile = (): string => {
 };
 
 
-module.exports = {
+export default {
   City,
   Country,
   getNearestCity: City.getNearest,

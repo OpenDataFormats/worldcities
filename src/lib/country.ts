@@ -1,7 +1,11 @@
 /**
  * Country class structure definition.
  */
+import path from 'path';
+import fs from 'fs';
+
 import countries from '../data/countries.json';
+import { IOpenObject } from './types';
 
 
  export class Country {
@@ -21,10 +25,12 @@ import countries from '../data/countries.json';
     readonly postalCodeRegExp: string,
     readonly tld: string,
     readonly wikipedia: string,
+    readonly geoJSON?: IOpenObject,
+    readonly flagSVG?: string,
    ) {}
 
 
-  static fromRawJson(countryRaw: any[]) {
+  static fromRawJson(countryRaw: any[], geoJSON?: IOpenObject, flagSVG?: string) {
     return new Country(
       countryRaw[4],
       countryRaw[10],
@@ -41,18 +47,41 @@ import countries from '../data/countries.json';
       countryRaw[11],
       countryRaw[7],
       countryRaw[14],
+      geoJSON,
+      flagSVG,
     );
   }
 
   /**
-   * Get a country by its 2 letter country code.
+   * Get a country by its 2 letter country code. Pull the geoJSON and flag SVG data as well
+   * by setting `full=true`.
    */
-  static getByCountryCode(countrycode: string) {
+  static getByCountryCode(countrycode: string, full?: boolean) {
     const countryRaw: (any[] | undefined) = countries.find(c => (c[0] === countrycode));
+    let flagSVG;
+    let geoJSON;
 
     if (countryRaw === undefined) {
       throw new Error(`Failed to find country with country code ${countrycode}`);
     }
-    return Country.fromRawJson(countryRaw);
+
+    if (!!full) {
+      const countryCode = countryRaw[0].toLowerCase();
+
+      // Pull the geoJSON data
+      const geoJsonRaw = fs.readFileSync(
+        path.join(__dirname, `../data/geojson/${countryCode}.json`),
+        'utf-8',
+      );
+      geoJSON = JSON.parse(geoJsonRaw);
+
+      // Pull the flag SVG
+      flagSVG = fs.readFileSync(
+        path.join(__dirname, `../data/flags/${countryCode}.svg`),
+        'utf-8',
+      );
+    }
+
+    return Country.fromRawJson(countryRaw, geoJSON, flagSVG);
   }
 }

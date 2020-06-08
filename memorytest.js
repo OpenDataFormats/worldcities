@@ -38,4 +38,4 @@ runTest()
 
   });
 
-console.log(WorldCities.getSqliteFile());
+// console.log(WorldCities.getSqliteFile());
