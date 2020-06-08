@@ -10,8 +10,6 @@ import schema from '../schemas/city.json';
 
 
 export class City {
-  readonly schema = schema;
-
   constructor(
     readonly latitude: number,
     readonly longitude: number,
@@ -54,5 +52,10 @@ export class City {
     };
     const country = Country.getByCountryCode(String(city[3]));
     return City.fromRawJson(city, country);
+  }
+
+
+  static get schema() {
+    return schema;
   }
 }

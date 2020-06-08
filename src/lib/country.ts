@@ -5,7 +5,7 @@ import countries from '../data/countries.json';
 
 
  export class Country {
-   constructor(
+  constructor(
     readonly areaSquareMeters: number,
     readonly callingCode: string,
     readonly capital: string,

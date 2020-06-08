@@ -19,7 +19,6 @@ class City {
         this.population = population;
         this.timezone = timezone;
         this.country = country;
-        this.schema = city_json_1.default;
     }
     static fromRawJson(cityRaw, country) {
         return new City(cityRaw[0], cityRaw[1], cityRaw[2], cityRaw[4], cityRaw[5], country);
@@ -44,6 +43,9 @@ class City {
         ;
         const country = country_1.Country.getByCountryCode(String(city[3]));
         return City.fromRawJson(city, country);
+    }
+    static get schema() {
+        return city_json_1.default;
     }
 }
 exports.City = City;

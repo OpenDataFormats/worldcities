@@ -1,14 +1,11 @@
 /**
  * @fileoverview Test the amount of memory used in loading all of the JSON.
  */
-const worldcities = require('./dist/index');
+const WorldCities = require('./dist/index');
 
 
 const startMem = process.memoryUsage().heapUsed;
 
-
-// const lat = 43.67427984458272;
-// const lng = 17.378491040319226;
 const lat = 12.05288;
 const lng = -61.75226;
 
@@ -19,7 +16,7 @@ let nearest;
 const runTest = async () => {
   for (let i = 0; i < 1e3; i++) {
     const startTime = (new Date()).getTime();
-    nearest = await worldcities.getNearestCity(lat, lng);
+    nearest = await WorldCities.getNearestCity(lat, lng);
     const endTime = (new Date()).getTime();
     times.push(endTime - startTime);
   }
@@ -40,3 +37,5 @@ runTest()
     console.log(`Average execution time: ${totalTime / times.length}ms`);
 
   });
+
+console.log(WorldCities.getSqliteFile());
