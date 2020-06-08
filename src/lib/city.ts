@@ -2,9 +2,12 @@
  * City class structure definition.
  */
 import { ICountry } from './types';
+import schema from '../schemas/city.json';
 
 
 export class City {
+  readonly schema = schema;
+
   constructor(
     readonly latitude: number,
     readonly longitude: number,

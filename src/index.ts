@@ -4,13 +4,12 @@
  * Convenience library for looking up city and country data using GPS coordinates and by name.
  */
 // import {promises as fs} from 'fs';
-import { ICity, ICountry } from './types';
-import { City } from './city';
-import { Country } from './country';
+import { ICity, ICountry } from './lib/types';
+import { City } from './lib/city';
+import { Country } from './lib/country';
 
-import cities from '../dist/data/cities.json';
-import countries from '../dist/data/countries.json';
-import schema from '../schemas/city.json';
+import cities from './data/cities.json';
+import countries from './data/countries.json';
 
 /** @const {number} The multiplier in meters used in distance calculations. */
 const DISTANCE_MULTIPLIER = 6371e3;
@@ -87,5 +86,6 @@ const getNearestCity = (lat: number, lng: number): ICity => {
 
 module.exports = {
   getNearestCity,
-  schema,
+  City,
+  Country,
 };

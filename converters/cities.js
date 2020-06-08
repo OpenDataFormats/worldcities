@@ -25,7 +25,7 @@ infolog('Save the parsed cities to JSON file');
   entity => (JSON.stringify(entity)),
   '[\n  %s\n]\n',
   ',\n  ',
-  '../dist/data/cities.json',
+  '../src/data/cities.json',
 );
 
 
@@ -35,7 +35,7 @@ Parsers.serializeToFile(
   entity => (JSON.stringify(entity)),
   '[\n  %s\n]\n',
   ',\n  ',
-  '../dist/data/countries.json',
+  '../src/data/countries.json',
 );
 
 
