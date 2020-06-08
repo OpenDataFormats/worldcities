@@ -1,6 +1,7 @@
 /**
  * Country class structure definition.
  */
+import countries from '../data/countries.json';
 
 
  export class Country {
@@ -41,5 +42,17 @@
       countryRaw[7],
       countryRaw[14],
     );
+  }
+
+  /**
+   * Get a country by its 2 letter country code.
+   */
+  static getByCountryCode(countrycode: string) {
+    const countryRaw: (any[] | undefined) = countries.find(c => (c[0] === countrycode));
+
+    if (countryRaw === undefined) {
+      throw new Error(`Failed to find country with country code ${countrycode}`);
+    }
+    return Country.fromRawJson(countryRaw);
   }
 }
