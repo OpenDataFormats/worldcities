@@ -79,7 +79,7 @@ const saveCountries = (countryData, geojson) => {
       row[12] = row[12].join(',');
       row[13] = row[13].join(',');
       row.push(geojson[row[0]]);
-      row.push(Parsers.readSvgFile(`../dist/flags/${row[0].toLowerCase()}.svg`));
+      row.push(Parsers.readSvgFile(`../src/data/flags/${row[0].toLowerCase()}.svg`));
       countriesStmt.run(row);
     });
     countriesStmt.finalize();

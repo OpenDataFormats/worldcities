@@ -1,13 +1,13 @@
 /**
  * @fileoverview Test the amount of memory used in loading all of the JSON.
  */
-const WorldCities = require('./dist/index');
+const WorldCities = require('./dist');
 
 
 const startMem = process.memoryUsage().heapUsed;
 
-const lat = 12.05288;
-const lng = -61.75226;
+const lat = 35.6828387;
+const lng = 139.7594549;
 
 const times = [];
 

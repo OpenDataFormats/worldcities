@@ -51,4 +51,3 @@ City and country data:
 Flag SVG data
 
 [flag-icon-css](https://github.com/lipis/flag-icon-css)
-

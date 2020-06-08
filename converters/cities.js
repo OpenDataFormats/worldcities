@@ -57,12 +57,12 @@ shapes.forEach((shapesParts) => {
 });
 
 infolog('Save the parsed shapes to JSON files');
-Parsers.writeJsonToFiles(geojson, '../dist/geojson/')
+Parsers.writeJsonToFiles(geojson, '../src/data/geojson/')
 
 
 // Write the data to a SQLite database file
 infolog('Creating the SQLite database');
-Database.open('../dist/data/worldcities.sqlite');
+Database.open('../src/data/worldcities.sqlite');
 
 infolog('Saving the cities to the database');
 Database.saveCities(cityData);
