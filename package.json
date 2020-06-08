@@ -3,11 +3,13 @@
   "version": "0.1.0",
   "description": "Root repository for worldcities, for pulling source data, parsing, and preparing the npm package.",
   "scripts": {
+    "build": "./node_modules/.bin/tsc",
     "docs": "jsdoc --configure jsdocs.json --destination ./docs/jsdocs",
     "lint": "eslint ./src/",
     "lint:fix": "eslint ./src/ --fix",
     "test": "jest && coveralls < ./docs/coverage/lcov.info",
-    "test:watch": "jest --watchAll"
+    "test:watch": "jest --watchAll",
+    "watch:ts": "tsc -w"
   },
   "repository": {
     "type": "git",
@@ -28,7 +30,9 @@
     "eslint": "^5.6.0",
     "jest": "^25.1.0",
     "jsdoc": "^3.6.3",
-    "sqlite3": "^4.2.0"
+    "sqlite3": "^4.2.0",
+    "tslint": "^6.1.2",
+    "typescript": "^3.9.5"
   },
   "jest": {
     "verbose": true,
