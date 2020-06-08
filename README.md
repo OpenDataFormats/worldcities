@@ -15,8 +15,8 @@ The data from the GeoNames tab seperated values files are parsed and normalized 
 | `./data` | Source TSV data files. |
 | `./dist` | "Compiled" output for creating [the npm package](https://www.npmjs.com/package/worldcities). |
 | `./dist/data` | The converted and formatted JSON. |
-| `./dist/flags` | SVG files of the flags of each country. |
-| `./dist/geojson` | The GeoJSON of the shape of each country. |
+| `./dist/data/flags` | SVG files of the flags of each country. |
+| `./dist/data/geojson` | The GeoJSON of the shape of each country. |
 
 ## Usage and Tools
 
