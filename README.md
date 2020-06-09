@@ -19,6 +19,16 @@ The data from the GeoNames tab seperated values files are parsed and normalized 
 npm test
 ```
 
+## Publishing
+
+```bash
+./bin/pull.data.sh
+./bin/convert.all.sh
+npm test
+cd ./dist
+npm publish
+```
+
 ## Folder Structure
 
 | Folder | Description |

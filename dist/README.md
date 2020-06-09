@@ -46,6 +46,19 @@ const city = WorldCities.getNearestCity(35.6895, 139.69171);
 // }
 ```
 
+### Query for a single city by name
+
+```javascript
+const city = WorldCities.getByName('Tokyo');
+```
+
+### Query all cities matching a name
+
+```javascript
+const cities = WorldCities.getByName('nEw yOrK');
+assert.equal(cities.length, 3);
+```
+
 ### Timezones
 
 The city data includes the IANA timezone ID in string format; ie. "America/Los_Angeles". To use these to localize dates and times to the city, it's highly recommended to use the [Moment Timezone library](https://momentjs.com/timezone/).
