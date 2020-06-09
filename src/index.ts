@@ -17,6 +17,8 @@ const getSqlitePath = (): string => {
 const WorldCities = {
   City,
   Country,
+  getAllByName: City.getAllByName,
+  getByName: City.getByName,
   getNearestCity: City.getNearest,
   getSqlitePath,
 };

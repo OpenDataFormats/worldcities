@@ -34,6 +34,25 @@ export class City {
 
 
   /**
+   * Look up all of the cities matching a name. This can be used for partial matching
+   * such as in an look up form field.
+   */
+  static getAllByName(name: string, countryCode?: string) {
+    const matcher = new RegExp(name, 'i');
+
+    let found = cities;
+
+    if (countryCode) {
+      found = found.filter(city => (city[3] === countryCode));
+    }
+
+    found = found.filter(city => (String(city[2]).match(matcher)));
+
+    return found.map(City.fromRawJson);
+  }
+
+
+  /**
    * Look up a city by name, returning the first one that matches.
    * Optionally also filter on country code.
    */

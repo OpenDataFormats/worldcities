@@ -2,6 +2,12 @@
 import { City } from './city';
 
 
+test('.getAllByName returns the correct number of matches', () => {
+  expect(City.getAllByName('lOn').length).toBe(131);
+  expect(City.getAllByName('nEw YoRk', 'US').length).toBe(3);
+});
+
+
 test('.getByName ignores case', () => {
   expect(City.getByName('zAgReB')).not.toBeUndefined();
 });
