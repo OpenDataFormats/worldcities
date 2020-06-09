@@ -35,10 +35,15 @@ export class City {
 
   /**
    * Look up a city by name, returning the first one that matches.
+   * Optionally also filter on country code.
    */
-  static getByName(name: string) {
+  static getByName(name: string, countryCode?: string) {
     const matcher = new RegExp(name, 'i');
     for (let i = 0; i < cities.length; i++) {
+      if (countryCode && cities[i][3] !== countryCode) {
+        continue;
+      }
+
       if (String(cities[i][2]).match(matcher)) {
         return City.fromRawJson(cities[i]);
       }

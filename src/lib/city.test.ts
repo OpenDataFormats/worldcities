@@ -19,6 +19,13 @@ test('.getByName returns the first city by name', () => {
 });
 
 
+test('.getByName with country code returns the correct city', () => {
+  const city = City.getByName('London', 'GB');
+  expect(city).not.toBeUndefined();
+  expect(city?.country?.name).toBe('United Kingdom');
+});
+
+
 test('.getNearest finds the correct closest cities', () => {
   expect(City.getNearest(12.05288, -61.75226).name).toBe("Saint George's");
   expect(City.getNearest(51.507351, -0.127758).country.name).toBe('United Kingdom');
