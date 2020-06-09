@@ -20,7 +20,8 @@ export class City {
   ) {}
 
 
-  static fromRawJson(cityRaw: any[], country: ICountry) {
+  static fromRawJson(cityRaw: any[]) {
+    const country = Country.getByCountryCode(String(cityRaw[3]));
     return new City(
       cityRaw[0],
       cityRaw[1],
@@ -29,6 +30,20 @@ export class City {
       cityRaw[5],
       country,
     );
+  }
+
+
+  /**
+   * Look up a city by name, returning the first one that matches.
+   */
+  static getByName(name: string) {
+    const matcher = new RegExp(name, 'i');
+    for (let i = 0; i < cities.length; i++) {
+      if (String(cities[i][2]).match(matcher)) {
+        return City.fromRawJson(cities[i]);
+      }
+    }
+    return undefined;
   }
 
 
@@ -50,8 +65,8 @@ export class City {
         city = cities[i];
       }
     };
-    const country = Country.getByCountryCode(String(city[3]));
-    return City.fromRawJson(city, country);
+
+    return City.fromRawJson(city);
   }
 
 

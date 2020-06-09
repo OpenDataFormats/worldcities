@@ -2,6 +2,23 @@
 import { City } from './city';
 
 
+test('.getByName ignores case', () => {
+  expect(City.getByName('zAgReB')).not.toBeUndefined();
+});
+
+
+test('.getByName returns nothing for an unknown city', () => {
+  expect(City.getByName('Nowheresville')).toBeUndefined();
+});
+
+
+test('.getByName returns the first city by name', () => {
+  const city = City.getByName('London');
+  expect(city).not.toBeUndefined();
+  expect(city?.country?.name).toBe('Canada');
+});
+
+
 test('.getNearest finds the correct closest cities', () => {
   expect(City.getNearest(12.05288, -61.75226).name).toBe("Saint George's");
   expect(City.getNearest(51.507351, -0.127758).country.name).toBe('United Kingdom');

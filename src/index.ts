@@ -9,14 +9,17 @@ import { City } from './lib/city';
 import { Country } from './lib/country';
 
 
-const getSqliteFile = (): string => {
+const getSqlitePath = (): string => {
   return path.join(__dirname, './data/worldcities.sqlite');
 };
 
 
-export default {
+const WorldCities = {
   City,
   Country,
   getNearestCity: City.getNearest,
-  getSqliteFile,
+  getSqlitePath,
 };
+
+module.exports = WorldCities;
+export default WorldCities;
