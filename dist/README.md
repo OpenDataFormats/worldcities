@@ -106,19 +106,9 @@ Google Maps also supports using [GeoJSON as a "Data Layer"](https://developers.g
 
 ### SQLite
 
-All of the data is also available in a compact SQLite file.
+All of the data is also available in a compact SQLite file. It is in the source repository, but not included in the package to keep size reasonable.
 
-```javascript
-const sqlite = require('sqlite3')
-const WorldCities = require('worldcities');
-
-const db = new sqlite.Database(WorldCities.getSqlitePath());
-db.run(`SELECT *
-  FROM cities
-  LEFT JOIN countries ON cities.country_code = countries.country_code
-  WHERE cities.name = 'London'
-  AND cities.country_code = 'GB'`);
-```
+[https://raw.githubusercontent.com/OpenDataFormats/worldcities/master/data/worldcities.sqlite]
 
 ## Data Sources
 

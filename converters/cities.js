@@ -62,7 +62,7 @@ Parsers.writeJsonToFiles(geojson, '../src/data/geojson/')
 
 // Write the data to a SQLite database file
 infolog('Creating the SQLite database');
-Database.open('../src/data/worldcities.sqlite');
+Database.open('../data/worldcities.sqlite');
 
 infolog('Saving the cities to the database');
 Database.saveCities(cityData);
