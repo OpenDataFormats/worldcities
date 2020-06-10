@@ -72,6 +72,15 @@ export class City {
 
 
   /**
+   * Getter for the nested Country object that returns the full object with
+   * geoJSON and flag SVG.
+   */
+  getCountry() {
+    return Country.getByCountryCode(this.country.countryCode, true);
+  }
+
+
+  /**
    * Get the city nearest to the GPS coordinates, as determined by the distance,
    * as the crow flies.
    */

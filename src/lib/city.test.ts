@@ -32,6 +32,13 @@ test('.getByName with country code returns the correct city', () => {
 });
 
 
+test('.getCountry returns the full country data', () => {
+  const city = City.getByName('London', 'GB');
+  const country = city?.getCountry();
+  expect(typeof country?.geoJSON).toBe('object');
+  expect(country?.flagSVG?.length).toBeGreaterThan(100);
+});
+
 test('.getNearest finds the correct closest cities', () => {
   expect(City.getNearest(12.05288, -61.75226).name).toBe("Saint George's");
   expect(City.getNearest(51.507351, -0.127758).country.name).toBe('United Kingdom');
