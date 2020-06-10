@@ -59,6 +59,17 @@ const cities = WorldCities.getByName('nEw yOrK');
 assert.equal(cities.length, 3);
 ```
 
+### Get a Country by Country Code
+
+Retrieve the country data by querying for it by the 2 letter country code.
+The second argument returns the Country with full data, including geoJSON
+and flag SVG.
+
+```javascript
+const country = WorldCities.getCountry('NZ', true);
+fs.writeFileSync('nz.flag.svg', country.flagSVG);
+```
+
 ### Timezones
 
 The city data includes the IANA timezone ID in string format; ie. "America/Los_Angeles". To use these to localize dates and times to the city, it's highly recommended to use the [Moment Timezone library](https://momentjs.com/timezone/).
