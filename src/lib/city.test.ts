@@ -54,6 +54,16 @@ test('.getNearestCountry finds the correct countries', () => {
 });
 
 
+test('.getNearestLargeCity finds the correct cities', () => {
+  const lat = 17.076480407330514;
+  const lng = -101.3674415353851;
+  const city = City.getNearest(lat, lng);
+  const largeCity = City.getNearestLargeCity(lat, lng);
+  expect(city.name).toBe('Petatlan');
+  expect(largeCity.name).toBe('Acapulco de Juarez');
+});
+
+
 test('City schema exported', () => {
   const schema = City.schema;
   expect(Object.keys(schema.properties).length).toBe(6);

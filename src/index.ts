@@ -22,6 +22,7 @@ const WorldCities = {
   getCountry: Country.getByCountryCode,
   getNearestCity: City.getNearest,
   getNearestCountry: City.getNearestCountry,
+  getNearestLargeCity: City.getNearestLargeCity,
   getSqlitePath,
 };
 

@@ -16,34 +16,46 @@ The data from the GeoNames tab seperated values files are parsed and normalized 
 
 ```javascript
 const WorldCities = require('worldcities');
-const city = WorldCities.getNearestCity(35.6895, 139.69171);
+const city = WorldCities.getNearestCity(5.42282298420212, 100.33753796627954);
 
-// {
-//   "latitude": 35.6895,
-//   "longitude": 139.69171,
-//   "name": "Tokyo",
-//   "population": 8336599,
-//   "timezone": "Asia/Tokyo",
-//   "country": {
-//     "areaSquareMeters": 377835,
-//     "callingCode": "81",
-//     "capital": "Tokyo",
-//     "continent": "AS",
-//     "countryCode": "JP",
-//     "countryCode3": "JPN",
-//     "currencyCode": "JPY",
-//     "currencyName": "Yen",
-//     "languages": [
-//       "ja"
+// City {
+//   latitude: 5.41123,
+//   longitude: 100.33543,
+//   name: 'George Town',
+//   population: 300000,
+//   timezone: 'Asia/Kuala_Lumpur',
+//   country: Country {
+//     areaSquareMeters: 329750,
+//     callingCode: '60',
+//     capital: 'Kuala Lumpur',
+//     continent: 'AS',
+//     countryCode: 'MY',
+//     countryCode3: 'MYS',
+//     currencyCode: 'MYR',
+//     currencyName: 'Ringgit',
+//     languages: [
+//       'ms-MY', 'en',
+//       'zh',    'ta',
+//       'te',    'ml',
+//       'pa',    'th'
 //     ],
-//     "name": "Japan",
-//     "neighbors": [],
-//     "population": 126529100,
-//     "postalCodeRegExp": "^\\d{3}-\\d{4}$",
-//     "tld": ".jp",
-//     "wikipedia": "Japan"
+//     name: 'Malaysia',
+//     neighbors: [ 'BN', 'TH', 'ID' ],
+//     population: 31528585,
+//     postalCodeRegExp: '^(\\d{5})$',
+//     tld: '.my',
+//     wikipedia: 'Malaysia',
+//     geoJSON: undefined,
+//     flagSVG: undefined
 //   }
 // }
+```
+
+### Query for a large city by GPS
+
+```javascript
+const WorldCities = require('worldcities');
+const city = WorldCities.getNearestLargeCity(17.076480407330514, -101.3674415353851);
 ```
 
 ### Query for a single city by name
