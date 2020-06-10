@@ -103,6 +103,15 @@ export class City {
   }
 
 
+  /**
+   * Get the country nearest to the GPS coordinates, as determined by the distance,
+   * as the crow flies.
+   */
+  static getNearestCountry(lat: number, lng: number) {
+    return City.getNearest(lat, lng).getCountry();
+  }
+
+
   static get schema() {
     return schema;
   }

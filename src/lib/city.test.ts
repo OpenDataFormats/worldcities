@@ -48,6 +48,12 @@ test('.getNearest finds the correct closest cities', () => {
 });
 
 
+test('.getNearestCountry finds the correct countries', () => {
+  expect(City.getNearestCountry(50.4727969, -0.0509147645).name).toBe('United Kingdom');
+  expect(City.getNearestCountry(16.540405, -114.39702284).currencyName).toBe('Peso');
+});
+
+
 test('City schema exported', () => {
   const schema = City.schema;
   expect(Object.keys(schema.properties).length).toBe(6);
