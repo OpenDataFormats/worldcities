@@ -17520,7 +17520,6 @@
   [45.15,26.83333,"Buzau","RO",130954,"Europe/Bucharest"],
   [46.71667,26.7,"Buhusi","RO",18395,"Europe/Bucharest"],
   [44.56139,25.94889,"Buftea","RO",20691,"Europe/Bucharest"],
-  [44.43225,26.10626,"Bucharest","RO",1877155,"Europe/Bucharest"],
   [45.18333,25.66667,"Breaza","RO",17949,"Europe/Bucharest"],
   [45.64861,25.60613,"Brasov","RO",276088,"Europe/Bucharest"],
   [45.27152,27.97429,"Braila","RO",213569,"Europe/Bucharest"],
@@ -17546,12 +17545,6 @@
   [44.95905,24.94198,"Mioveni","RO",29062,"Europe/Bucharest"],
   [46.22141,24.79279,"Sighisoara","RO",34537,"Europe/Bucharest"],
   [44.5647,27.3633,"Slobozia","RO",52710,"Europe/Bucharest"],
-  [44.49239,26.04831,"Sector 1","RO",225453,"Europe/Bucharest"],
-  [44.4528,26.13321,"Sector 2","RO",345370,"Europe/Bucharest"],
-  [44.4234,26.16874,"Sector 3","RO",385439,"Europe/Bucharest"],
-  [44.37571,26.12085,"Sector 4","RO",287828,"Europe/Bucharest"],
-  [44.38808,26.07144,"Sector 5","RO",271575,"Europe/Bucharest"],
-  [44.43579,26.01649,"Sector 6","RO",367760,"Europe/Bucharest"],
   [45.38361,20.38194,"Zrenjanin","RS",79773,"Europe/Belgrade"],
   [44.8458,20.40116,"Zemun","RS",155591,"Europe/Belgrade"],
   [43.90358,22.26405,"Zajecar","RS",49800,"Europe/Belgrade"],
@@ -24341,5 +24334,6 @@
   [-17.30192,31.33056,"Bindura","ZW",37423,"Africa/Harare"],
   [-22.21667,30,"Beitbridge","ZW",26459,"Africa/Harare"],
   [-17.89,31.1475,"Epworth","ZW",123250,"Africa/Harare"],
-  [-18.01274,31.07555,"Chitungwiza","ZW",340360,"Africa/Harare"]
+  [-18.01274,31.07555,"Chitungwiza","ZW",340360,"Africa/Harare"],
+  [44.43225,26.10626,"Bucharest","RO",1877155,"Europe/Bucharest",[["Sector 1",225453],["Sector 2",345370],["Sector 3",385439],["Sector 4",287828],["Sector 5",271575],["Sector 6",367760]]]
 ]

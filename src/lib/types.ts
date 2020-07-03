@@ -16,6 +16,7 @@ export interface ICity {
   name: string;
   population: number;
   timezone: string;
+  districts?: IDistrict[];
 }
 
 
@@ -37,4 +38,10 @@ export interface ICountry {
   postalCodeRegExp: string;
   tld: string;
   wikipedia: string;
+}
+
+
+export interface IDistrict {
+  name: string;
+  population: number;
 }

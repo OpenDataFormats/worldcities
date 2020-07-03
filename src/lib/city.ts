@@ -2,7 +2,7 @@
  * City class structure definition.
  */
 import { Country } from './country';
-import { ICountry } from './types';
+import { ICountry, IDistrict } from './types';
 import { getDistance } from './util';
 
 import cities from '../data/cities.json';
@@ -21,11 +21,23 @@ export class City {
     readonly population: number,
     readonly timezone: string,
     readonly country: ICountry,
+    readonly districts?: IDistrict[],
   ) {}
 
 
   static fromRawJson(cityRaw: any[]) {
     const country = Country.getByCountryCode(String(cityRaw[3]));
+    const districts:IDistrict[] = [];
+
+    if (cityRaw[6]) {
+      cityRaw[6].forEach((district:any[]) => {
+        districts.push({
+          name: district[6],
+          population: district[7],
+        });
+      });
+    }
+
     return new City(
       cityRaw[0],
       cityRaw[1],
@@ -33,6 +45,7 @@ export class City {
       cityRaw[4],
       cityRaw[5],
       country,
+      districts,
     );
   }
 

@@ -3,7 +3,7 @@ import { City } from './city';
 
 
 test('.getAllByName returns the correct number of matches', () => {
-  expect(City.getAllByName('lOn').length).toBe(131);
+  expect(City.getAllByName('lOn').length).toBe(130);
   expect(City.getAllByName('nEw YoRk', 'US').length).toBe(3);
 });
 
@@ -68,4 +68,11 @@ test('City schema exported', () => {
   const schema = City.schema;
   expect(Object.keys(schema.properties).length).toBe(6);
   expect(Object.keys(schema.required).length).toBe(6);
+});
+
+
+test('Cities with a district value set', () => {
+  const city = City.getByName('Bucharest', 'RO');
+  expect(city).not.toBeUndefined();
+  expect(city?.districts?.length).toBe(6);
 });
