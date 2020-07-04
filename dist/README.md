@@ -1,7 +1,5 @@
 # World Cities
 
-__BETA Absolutely not production ready! Do not even think about using this version!__
-
 [![Coverage Status](https://coveralls.io/repos/github/OpenDataFormats/worldcities/badge.svg?branch=master)](https://coveralls.io/github/OpenDataFormats/worldcities?branch=master)
 
 24,343 world cities and 252 countries.
