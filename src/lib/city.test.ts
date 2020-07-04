@@ -3,8 +3,8 @@ import { City } from './city';
 
 
 test('.getAllByName returns the correct number of matches', () => {
-  expect(City.getAllByName('lOn').length).toBe(131);
-  expect(City.getAllByName('nEw YoRk', 'US').length).toBe(3);
+  expect(City.getAllByName('lOn').length).toBe(122);
+  expect(City.getAllByName('nEw YoRk', 'US').length).toBe(2);
 });
 
 

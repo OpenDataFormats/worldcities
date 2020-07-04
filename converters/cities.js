@@ -11,7 +11,10 @@ const Database = require('./database');
 const Parsers = require('./parsers');
 
 const wikipedias = Parsers.readJson('../data/wikipedia.json');
-const cityData = Parsers.readFileLines('../data/cities15000.txt').map(Parsers.city);
+const cityData = Parsers
+  .readFileLines('../data/cities15000.txt')
+  .map(Parsers.city)
+  .filter(row => (row !== null));
 const countries = Parsers.readFileLines('../data/countryInfo.txt');
 const countryData = countries.map(line => (Parsers.country(line, wikipedias)));
 const shapes = Parsers.readFileLines('../data/shapes_all_low.txt', true);
@@ -20,7 +23,7 @@ const shapes = Parsers.readFileLines('../data/shapes_all_low.txt', true);
 const infolog = (...args) => { console.info(...args); };
 
 infolog('Save the parsed cities to JSON file');
- Parsers.serializeToFile(
+Parsers.serializeToFile(
   cityData,
   entity => (JSON.stringify(entity)),
   '[\n  %s\n]\n',

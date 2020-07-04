@@ -9,6 +9,7 @@ const util = require('util');
 
 const EMPTY_SPACE = new RegExp(`
 (  )*`, 'g');
+const IGNORE_CODES = ['PPLX'];
 
 
  /**
@@ -20,7 +21,7 @@ const EMPTY_SPACE = new RegExp(`
  const city = (parts) => {
   let city = null;
 
-  if(parts.length === 19) {
+  if(parts.length === 19 && !IGNORE_CODES.includes(parts[7])) {
     city = [
       // Latitude and longitude
       Number.parseFloat(parts[4]),
