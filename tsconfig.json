@@ -9,9 +9,10 @@
     "noUnusedLocals": true,
     "outDir": "dist",
     "resolveJsonModule": true,
-    "sourceMap": true,
+    "sourceMap": false,
     "strict": true,
-    "target": "es2017"
+    "target": "es2017",
+    "declaration": true
   },
   "compileOnSave": true,
   "include": [
