@@ -15,7 +15,6 @@ const SQL_COLUMNS_CITIES = [
   '"country_code" TEXT',
   '"population" INTEGER',
   '"timezone" TEXT',
-  '"districts" TEXT',
 ];
 const SQL_CREATE_CITIES = `CREATE TABLE "cities" (${SQL_COLUMNS_CITIES.join(',')})`;
 const SQL_INSERT_CITIES = `INSERT INTO cities
@@ -65,12 +64,7 @@ const saveCities = (cityData) => {
     db.run(SQL_DROP_CITIES);
     db.run(SQL_CREATE_CITIES);
     const citiesStmt = db.prepare(SQL_INSERT_CITIES);
-    db.parallelize(() => (cityData.forEach((row) => {
-      if (row[6]) {
-        row[6] = row[6].map(district => (`${district[0]},${district[1]}`)).join('|');
-      }
-      return citiesStmt.run(row);
-    })));
+    db.parallelize(() => (cityData.forEach(row => (citiesStmt.run(row)))));
     citiesStmt.finalize();
   });
 };

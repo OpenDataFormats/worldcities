@@ -7,7 +7,6 @@
  * country code to the geoJSON. Load the country data only to map the Geonames ID in
  * joining the two datasets.
  */
-const Cleaners = require('./cleaners');
 const Database = require('./database');
 const Parsers = require('./parsers');
 
@@ -15,9 +14,7 @@ const wikipedias = Parsers.readJson('../data/wikipedia.json');
 const cityData = Parsers
   .readFileLines('../data/cities15000.txt')
   .map(Parsers.city)
-  .map(Cleaners.city)
-  .concat(Cleaners.cityFlush())
-  .filter(row => (row !== undefined));
+  .filter(row => (row !== null));
 const countries = Parsers.readFileLines('../data/countryInfo.txt');
 const countryData = countries.map(line => (Parsers.country(line, wikipedias)));
 const shapes = Parsers.readFileLines('../data/shapes_all_low.txt', true);
