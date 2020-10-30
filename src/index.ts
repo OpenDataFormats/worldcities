@@ -13,6 +13,7 @@ const WorldCities = {
   getAllByName: City.getAllByName,
   getByName: City.getByName,
   getCountry: Country.getByCountryCode,
+  getLargestCities: City.getLargestCities,
   getNearestCity: City.getNearest,
   getNearestCountry: City.getNearestCountry,
   getNearestLargeCity: City.getNearestLargeCity,

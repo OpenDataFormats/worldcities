@@ -6,6 +6,7 @@ import { ICountry } from './types';
 import { getDistance } from './util';
 
 import cities from '../data/cities.json';
+import continents from '../data/continents.json';
 import schema from '../schemas/city.json';
 
 // The minimum size of a "large" city.
@@ -81,6 +82,27 @@ export class City {
    */
   getCountry() {
     return Country.getByCountryCode(this.country.countryCode, true);
+  }
+
+
+  /**
+   * Get the largest cities. Optionally filter by continent. Optionally speficify
+   * the number of largest cities you want, default 10.
+   *
+   * @param continent One of the 7 (really 6)
+   * @param count The number of top largest cities.
+   */
+  static getLargestCities(continent?: string, count = 10) {
+    let sorted = cities;
+
+    if (continent) {
+      const global: any = continents;
+      sorted = sorted.filter(city => (global[continent].includes(city[3])));
+    }
+
+    sorted.sort((a:any, b:any) => (b[4] - a[4]));
+
+    return sorted.slice(0, count).map(City.fromRawJson);
   }
 
 
