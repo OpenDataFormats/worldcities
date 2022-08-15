@@ -65,7 +65,7 @@ const city = WorldCities.getByName('Tokyo');
 ### Query all cities matching a name
 
 ```javascript
-const cities = WorldCities.getByName('nEw yOrK');
+const cities = WorldCities.getAllByName('nEw yOrK');
 assert.equal(cities.length, 3);
 ```
 
