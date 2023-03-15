@@ -17,7 +17,7 @@
     "haversine",
     "Wikipedia"
   ],
-  "main": "dist/index.js",
+  "main": "index.js",
   "types": "dist/index.d.ts",
   "scripts": {
     "start": "node dist/index.js"
