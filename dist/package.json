@@ -1,6 +1,6 @@
 {
   "name": "worldcities",
-  "version": "0.1.7",
+  "version": "0.1.8",
   "description": "Convenience library for looking up city and country data using GPS coordinates and by name.",
   "keywords": [
     "world",
