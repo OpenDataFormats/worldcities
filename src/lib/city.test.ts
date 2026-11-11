@@ -45,6 +45,11 @@ test('.getLargestCities finds the correct largest cities', () => {
   expect(City.getLargestCities('SA', 20)[18].name).toBe('Asuncion');
 });
 
+test('.getLargestCities does not change .getByName results', () => {
+  City.getLargestCities();
+  expect(City.getByName('London')?.country?.name).toBe('Canada');
+});
+
 test('.getNearest finds the correct closest cities', () => {
   expect(City.getNearest(12.05288, -61.75226).name).toBe("Saint George's");
   expect(City.getNearest(51.507351, -0.127758).country.name).toBe('United Kingdom');

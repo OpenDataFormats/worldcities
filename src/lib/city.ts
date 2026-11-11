@@ -100,7 +100,8 @@ export class City {
       sorted = sorted.filter(city => (global[continent].includes(city[3])));
     }
 
-    sorted.sort((a:any, b:any) => (b[4] - a[4]));
+    // Sort a copy so the shared module-level `cities` array keeps its original order.
+    sorted = [...sorted].sort((a:any, b:any) => (b[4] - a[4]));
 
     return sorted.slice(0, count).map(City.fromRawJson);
   }
